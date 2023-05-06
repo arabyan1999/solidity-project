@@ -265,8 +265,8 @@
       ]
     },
     "C:\\Users\\USER\\Desktop\\to new computer\\projects\\solidity-project\\contracts\\CasinoContract.sol": {
-      "lastModificationDate": 1683372696776,
-      "contentHash": "2149331a35831bd1381c6a41cc7b4bd7",
+      "lastModificationDate": 1683374082924,
+      "contentHash": "d96de1aaf2a8af56808ce42b4e04c99b",
       "sourceName": "contracts/CasinoContract.sol",
       "solcConfig": {
         "version": "0.8.7",

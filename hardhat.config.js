@@ -27,64 +27,26 @@ const HARDHAT_DEPENDENCY_COMPILER_KEEP = (process.env.HARDHAT_DEPENDENCY_COMPILE
 */
 module.exports = {
 solidity: {
-compilers: [
-{
-version: "0.8.7",
-settings: {
-optimizer: {
-enabled: true,
-runs: 200
-}
-}
-},
-{
-version: "0.5.16",
-settings: {
-optimizer: {
-enabled: true,
-runs: 200
-}
-}
-}
-]
-},
-namedAccounts: {
-deployer: {
-default: 0
-},
-owner: {
-default: 1
-},
-caller: {
-default: 2
-},
-holder: {
-default: 3
-},
-vzgo: {
-default: 4
-},
-grno: {
-default: 5
-},
-toni: {
-default: 6
-},
-chugun: {
-default: 7
-},
-shumi: {
-default: 8
-},
-arni: {
-default: 9
-},
-minter: {
-default: 10
-},
-treasury: {
-default: 11
-}
+    compilers: [
+        {
+            version: "0.8.7",
+            settings: {
+                optimizer: {
+                    enabled: true,
+                    runs: 200
+                }
+            }
+        },
+        {
+            version: "0.5.16",
+            settings: {
+                optimizer: {
+                    enabled: true,
+                    runs: 200
+                }
+            }
+        }
+    ]
 },
 networks: {
 hardhat: {}
