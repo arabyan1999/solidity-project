@@ -14,16 +14,21 @@ contract Chip is ERC20, Ownable {
     event newTreasury(address treasury);
     event newCasino(address casino);
     event withdraw(uint256 amount);
+    // ERC-20 token called "Chip token" with a symbol "Chip"
     constructor(uint256 _initialSupply, uint256 _initialRate) ERC20("Chip token", "Chip") {
+        // initialSupply the initial number of tokens
         rate = _initialRate;
-        // Contract deployer
+        // _mint - built-in function of the OpenZeppelin ERC20 token contract,
+        // which is used to mint new tokens and add them to the total supply of the token
+        // msg - built-in global variable, which provides information about the current call to the contract
+        // msg.sender - contract deployer
         _mint(msg.sender, _initialSupply);
     }
 
     // external - call only out of contract
     // allows external addresses to buy tokens by sending ether to the contract
     function mint(address _address) payable external {
-        // contition
+        // condition
         require(msg.value != 0, "Message value is 0"); // if false code reverted
         _mint(_address, msg.value / rate); // Ether rate by chip
     }
@@ -35,13 +40,13 @@ contract Chip is ERC20, Ownable {
         emit newRate(_newRate);
     }
 
-    // allow token holders to transfer tokens to other addresses
     function transfer(address _to, uint256 _amount) public override returns(bool) {
         _transfer(msg.sender, treasury, fee); // send fee to treasury
         _transfer(msg.sender, _to, _amount); // send amount
         return true; // check if function is ok
     }
 
+    // allow token holders to transfer tokens to other addresses
     function transferFrom(address _from, address _to, uint256 _amount) public override returns(bool) {
         if (msg.sender != casino) {
             _spendAllowance(_from, msg.sender, _amount + fee); // approve to spend
